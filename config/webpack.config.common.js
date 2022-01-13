@@ -41,5 +41,11 @@ module.exports = {
       template: path.resolve(__dirname, '..', './src/index.html'),
     }),
   ],
+  resolve: {
+    alias: {
+      '@Shared': path.resolve(__dirname, '..', './src/shared/'),
+    },
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   stats: 'errors-only',
 }

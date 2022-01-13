@@ -1,5 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
+  plugins: ['import'],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -7,6 +8,22 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+
+        project: './tsconfig.json',
+      },
+      node: {
+        paths: ['src'],
+      },
+      webpack: {
+        config: './config/webpack.config.common.js',
+      },
     },
   },
   extends: [
@@ -28,5 +45,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'import/no-unresolved': 'error',
   },
 }

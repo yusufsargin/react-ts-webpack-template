@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
-import Image from "./logo192.png";
-import SvgLogo from "./favicon.ico";
+import Image from './logo192.png'
 
 const App = () => {
   return (
     <div>
-      <img src={Image} alt='' />
-      ddd
+      <img src={Image} alt="" />
+      Deneme
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

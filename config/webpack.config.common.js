@@ -6,7 +6,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-
   module: {
     rules: [
       {
@@ -27,8 +26,21 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        test: /\.(woff(2)?|eot|ttf|otf)$/,
         type: 'asset/inline',
+      },
+      {
+        test: /\.svg$/,
+        oneOf: [
+          {
+            issuer: /\.[jt]sx?$/,
+            resourceQuery: /react/, // *.svg?react
+            use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+          },
+          {
+            type: 'asset',
+          },
+        ],
       },
     ],
   },
@@ -44,8 +56,9 @@ module.exports = {
   resolve: {
     alias: {
       '@Shared': path.resolve(__dirname, '..', './src/shared/'),
+      '@Assets': path.resolve(__dirname, '..', './src/assets/'),
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '..'],
   },
   stats: 'errors-only',
 }

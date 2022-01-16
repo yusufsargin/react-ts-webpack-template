@@ -1,14 +1,6 @@
-import Image from './logo192.png'
-import { Button } from '@Shared'
-
+import './app.css'
 const App = () => {
-  return (
-    <div>
-      <img src={Image} alt="" />
-      Deneme
-      <Button></Button>
-    </div>
-  )
+  return <div className="main">Starter App</div>
 }
 
 export default App

@@ -18,9 +18,9 @@ module.exports = {
 
         project: './tsconfig.json',
       },
-      node: {
-        paths: ['src'],
-      },
+      // node: {
+      //   paths: ['src'],
+      // },
       webpack: {
         config: './config/webpack.config.common.js',
       },
